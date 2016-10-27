@@ -29,6 +29,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         nivel++;
+
+        switch (nivel) {
+            case 2:
+                imagem.setImageResource(R.drawable.biceps02);
+                break;
+            case 3:
+                imagem.setImageResource(R.drawable.biceps03);
+                break;
+            case 4:
+                imagem.setImageResource(R.drawable.biceps04);
+                break;
+            case 5:
+                imagem.setImageResource(R.drawable.biceps05);
+                break;
+            case 6:
+            default:
+                return;
+        }
+
+
         titulo.setText("Nivel " + nivel);
     }
 }
