@@ -1,5 +1,6 @@
 package br.unisul.birlapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case 6:
             default:
+                Intent intent = new Intent(this, BamBamActivity.class);
+                startActivity(intent);
                 return;
         }
 
