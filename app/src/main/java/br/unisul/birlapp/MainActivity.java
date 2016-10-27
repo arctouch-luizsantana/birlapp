@@ -6,27 +6,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private int nivel = 1;
+    private ImageView imagem;
+    private Button botao;
+    private TextView titulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView titulo = (TextView) findViewById(R.id.titulo);
-        Button botao = (Button) findViewById(R.id.button);
-        ImageView imagem = (ImageView) findViewById(R.id.imageView);
+        titulo = (TextView) findViewById(R.id.titulo);
+        botao = (Button) findViewById(R.id.button);
+        imagem = (ImageView) findViewById(R.id.imageView);
 
-        botao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nivel++;
-                Toast.makeText(getApplicationContext(), "Nivel atual: " + nivel, Toast.LENGTH_SHORT).show();
-            }
-        });
+        botao.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        nivel++;
+        titulo.setText("Nivel " + nivel);
     }
 }
